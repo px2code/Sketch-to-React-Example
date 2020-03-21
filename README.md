@@ -15,7 +15,7 @@ alt="IMAGE ALT TEXT HERE" style="display:block;width:100%;height:auto" border="1
 
 [Your can check our video](https://youtu.be/Xzm0PF30Wwk)
 
-[![Edit pxCode studio example](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/pxcode-studio-example-jpduj?fontsize=14&hidenavigation=1&theme=dark)
+[![Edit pxCode studio example](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/pxcode-studio-example-jpduj?autoresize=1&fontsize=14&hidenavigation=1&module=%2Fsrc%2Fcomponents%2FHome.js&theme=dark)
 
 ## What pxCode studio?!
 
