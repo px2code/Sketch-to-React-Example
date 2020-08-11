@@ -1,90 +1,31 @@
-import { StyleSheet } from 'aphrodite/no-important';
+import { StyleSheet, css } from 'aphrodite/no-important';
 
-// version v0.10
+// version v1.00.1
 
 export const config = {
-  anchorScrollOffset: 100,
-  enableOptimize: true,
+  hashName: true,
   debug: false,
-};
 
-export const modalStyles = {
-  desktop: {
-    overlay: {
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      backgroundColor: 'rgba(0, 0, 0, 0.75)'
-    },
-
-    content: {
-      overflow: 'hidden',
-      margin: '0 auto',
-      width: '80%',
-      height: 'fit-content',
-      backgroundColor: 'rgba(0, 0, 0, 0)',
-      border: 0,
-      padding: 0
-    }
-  },
-
-  tablet: {
-    overlay: {
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      backgroundColor: 'rgba(0, 0, 0, 0.75)'
-    },
-
-    content: {
-      overflow: 'hidden',
-      top: 40,
-      bottom: 40,
-      left: 40,
-      right: 40,
-      margin: '0 auto',
-      width: '80%',
-      height: 'fit-content',
-      backgroundColor: 'rgba(0, 0, 0, 0)',
-      border: 0,
-      padding: 0
-    }
-  },
-
-  mobile: {
-    overlay: {
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      backgroundColor: 'rgba(0, 0, 0, 0.75)'
-    },
-
-    content: {
-      overflow: 'hidden',
-      top: 20,
-      bottom: 20,
-      left: 20,
-      right: 20,
-      margin: '0 auto',
-      width: '90%',
-      height: 'fit-content',
-      backgroundColor: 'rgba(0, 0, 0, 0)',
-      border: 0,
-      padding: 0
-    }
-  }
+  StyleSheet,
+  css
 };
 
 export const shareStyles = {
   fit: {
     width: '100%',
     height: '100%'
+  },
+
+  fitVisible: {
+    width: '100%',
+    height: '100%',
+    overflow: 'visible'
+  },
+
+  fitRelative: {
+    width: '100%',
+    height: '100%',
+    position: 'relative'
   },
 
   fitFlex: {
@@ -97,7 +38,8 @@ export const shareStyles = {
     width: '100%',
     height: '100%',
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    overflow: 'visible'
   },
 
   fitFlex2Center: {
@@ -105,7 +47,8 @@ export const shareStyles = {
     height: '100%',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    overflow: 'visible'
   },
 
   fitFlexCenterHidden: {
@@ -169,6 +112,31 @@ export const shareStyles = {
     flexDirection: 'row',
     alignItems: 'flex-end',
     justifyContent: 'center'
+  },
+
+  itemAuto: {
+    position: 'relative',
+    flexShrink: 0,
+    flexBasis: 'auto'
+  },
+
+  itemShrinkAuto: {
+    position: 'relative',
+    flexShrink: 1,
+    flexBasis: 'auto'
+  },
+
+  itemGrowAuto: {
+    position: 'relative',
+    flexGrow: 1,
+    flexBasis: 'auto'
+  },
+
+  itemGrowShrinkAuto: {
+    position: 'relative',
+    flexGrow: 1,
+    flexShrink: 1,
+    flexBasis: 'auto'
   }
 };
 

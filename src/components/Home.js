@@ -1,1482 +1,1082 @@
-import React, { Component } from 'react';
+/**
+ * This source code is exported from pxCode, you can get more document from https://www.pxcode.io
+ */
+
+import React from 'react';
 import { StyleSheet, css } from 'aphrodite/no-important';
-import posize from 'components/posize.v10';
-import { commonStyles, shareStyles } from 'components/pxConfig';
+import { Posize } from 'components/posize.v1.00';
+import { shareStyles } from 'components/pxConfig.v1.00';
 
-const Px = posize('div');
+const Px = ({ id, x, y, absolute, zIndex, trackStyle, areaStyle, className, altClassName, children, ...props }) => {
+  const posizeProps = { name: id, x, y, absolute, zIndex, trackStyle, areaStyle, altClassName };
+  const cn = [className, altClassName].filter(Boolean).join(' ');
+  return (
+    <Posize {...posizeProps}>
+      <div id={id} className={cn} {...props}>
+        {children}
+      </div>
+    </Posize>
+  );
+};
 
-export default class Home extends Component {
-  static inStorybook = true;
+function renderHero(props) {
+  return (
+    <div className={css(heroStyles.hero)}>
+      <div className={css(heroStyles.hero_space0)} />
+      <div className={css(heroStyles.hero_item1)}>
+        <div className={css(heroStyles.group76)}>
+          <div className={css(heroStyles.img50)} />
+          <div className={css(heroStyles.img51)} />
+          <div className={css(heroStyles.img53)} />
+          <Px x="23px 269fr 23px" y="31px 29fr 140fr" absolute className={css(heroStyles.txt56)}>
+            <div className={css(heroStyles.txt56_content)}>{'Play without subscribing'}</div>
+          </Px>
 
-  static propTypes = {};
-  static defaultProps = {};
-
-  get injectChildren() {
-    const { children } = this.props;
-    const injectMap = new Map();
-    React.Children.forEach(children, (child) => {
-      if (child && child.props && child.props.placeholder) {
-        injectMap.set(child.props.placeholder, () => {
-          return child;
-        });
-      }
-    });
-    return injectMap;
-  }
-
-  render() {
-    const injectMap = this.injectChildren;
-    return (
-      <Px layout={layouts.group1}>
-        <Px layout={layouts.BodyGroup75}>
-          <Px layout={layouts.graph31} />
-
-          <Px layout={layouts.flexGroup124}>
-            <Px layout={layouts.text62}>
-              <div className={css(styles.text62Text)}>{'Explore'}</div>
-            </Px>
-            <div className={css(styles.flexCell126)} />
-            <Px layout={layouts.text61}>
-              <div className={css(styles.text61Text)}>
-                {'Based on your interests'}
+          <Px x="25px 265fr 25px" y="154fr 22fr 24px" absolute className={css(heroStyles.flexRow260)}>
+            <div className={css(heroStyles.flexRow260_item0)}>
+              <div className={css(heroStyles.img60)} />
+            </div>
+            <div className={css(heroStyles.flexRow260_space1)} />
+            <div className={css(heroStyles.flexRow260_item2)}>
+              <div className={css(heroStyles.txt57)}>
+                <div className={css(heroStyles.txt57_content)}>{'Davide Galizzi'}</div>
               </div>
-            </Px>
-            <div className={css(styles.flexCell128)} />
-
-            <Px layout={layouts.flexGroup135}>
-              <div className={css(styles.flexCell136)} />
-
-              <Px layout={layouts.group138}>
-                <Px layout={layouts.graph50} />
-
-                <Px layout={layouts.CoverGroupGroup118}>
-                  <Px layout={layouts.graph51} />
-
-                  <Px layout={layouts.group52}>
-                    <Px layout={layouts.graph53} />
-                  </Px>
-
-                  <Px layout={layouts.BackgroundGroupGroup122}>
-                    <Px layout={layouts.flexGroup219}>
-                      <Px layout={layouts.text56}>
-                        <div className={css(styles.text56Text)}>
-                          {'Play without subscribing'}
-                        </div>
-                      </Px>
-                      <div className={css(styles.flexCell221)} />
-
-                      <Px layout={layouts.flexGroup238}>
-                        <div className={css(styles.flexCell239)} />
-                        <Px layout={layouts.graph60} />
-                        <div className={css(styles.flexCell241)} />
-                        <Px layout={layouts.text57}>
-                          <div className={css(styles.text57Text)}>
-                            {'Davide Galizzi'}
-                          </div>
-                        </Px>
-                        <div className={css(styles.flexCell243)} />
-
-                        <Px layout={layouts.group58}>
-                          <Px layout={layouts.graph59} />
-                        </Px>
-                      </Px>
-                    </Px>
-                  </Px>
-                </Px>
-              </Px>
-
-              <div className={css(styles.flexCell140)} />
-
-              <Px layout={layouts.group54}>
-                <Px layout={layouts.graph55} />
-              </Px>
-            </Px>
-
-            <div className={css(styles.flexCell130)} />
-
-            <Px layout={layouts.flexGroup143}>
-              <Px layout={layouts.text33}>
-                <div className={css(styles.text33Text)}>{'Discover'}</div>
-              </Px>
-              <div className={css(styles.flexCell145)} />
-
-              <Px layout={layouts.flexGroup157}>
-                <div className={css(styles.flexCell158)} />
-                <Px layout={layouts.text34}>
-                  <div className={css(styles.text34Text)}>
-                    {'Top podcasts on PodPro'}
-                  </div>
-                </Px>
-                <div className={css(styles.flexCell160)} />
-                <Px layout={layouts.text35}>
-                  <div className={css(styles.text35Text)}>{'Show all'}</div>
-                </Px>
-                <div className={css(styles.flexCell162)} />
-              </Px>
-
-              <div className={css(styles.flexCell149)} />
-
-              <Px layout={layouts.flexGroup164}>
-                <Px layout={layouts.flexGroup171}>
-                  <Px layout={layouts.graph38} />
-                  <div className={css(styles.flexCell173)} />
-                  <Px layout={layouts.text39}>
-                    <div className={css(styles.text39Text)}>
-                      {'To Live and Die \nin LA'}
-                    </div>
-                  </Px>
-                  <div className={css(styles.flexCell175)} />
-                  <Px layout={layouts.text40}>
-                    <div className={css(styles.text40Text)}>
-                      {'Tenderfoot TV \n& Cadence 13'}
-                    </div>
-                  </Px>
-                </Px>
-
-                <div className={css(styles.flexCell166)} />
-
-                <Px layout={layouts.flexGroup178}>
-                  <Px layout={layouts.graph46} />
-                  <div className={css(styles.flexCell180)} />
-                  <Px layout={layouts.text47}>
-                    <div className={css(styles.text47Text)}>
-                      {'Public Official A'}
-                    </div>
-                  </Px>
-                  <div className={css(styles.flexCell182)} />
-                  <Px layout={layouts.text48}>
-                    <div className={css(styles.text48Text)}>
-                      {'WBEZ Chicago'}
-                    </div>
-                  </Px>
-                </Px>
-
-                <div className={css(styles.flexCell168)} />
-
-                <Px layout={layouts.flexGroup185}>
-                  <Px layout={layouts.graph42} />
-                  <div className={css(styles.flexCell187)} />
-                  <Px layout={layouts.text43}>
-                    <div className={css(styles.text43Text)}>
-                      {'The Dropout'}
-                    </div>
-                  </Px>
-                  <div className={css(styles.flexCell189)} />
-                  <Px layout={layouts.text44}>
-                    <div className={css(styles.text44Text)}>{'ABC News'}</div>
-                  </Px>
-                </Px>
-              </Px>
-            </Px>
-
-            <div className={css(styles.flexCell132)} />
-
-            <Px layout={layouts.flexGroup152}>
-              <Px layout={layouts.text18}>
-                <div className={css(styles.text18Text)}>
-                  {'Recently Uploaded'}
-                </div>
-              </Px>
-              <div className={css(styles.flexCell154)} />
-
-              <Px layout={layouts.group3}>
-                <Px layout={layouts.box4} />
-
-                <Px layout={layouts.BackgroundGroupFlexGroup192}>
-                  <div className={css(styles.flexCell193)} />
-
-                  <Px layout={layouts.flexGroup201}>
-                    <Px layout={layouts.group10}>
-                      <Px layout={layouts.graph11} />
-                    </Px>
-
-                    <div className={css(styles.flexCell203)} />
-
-                    <Px layout={layouts.flexGroup226}>
-                      <div className={css(styles.flexCell227)} />
-                      <Px layout={layouts.text7}>
-                        <div className={css(styles.text7Text)}>
-                          {'The Dropout'}
-                        </div>
-                      </Px>
-                      <div className={css(styles.flexCell229)} />
-                      <Px layout={layouts.text8}>
-                        <div className={css(styles.text8Text)}>
-                          {'ABC News'}
-                        </div>
-                      </Px>
-                    </Px>
-
-                    <div className={css(styles.flexCell207)} />
-                    <Px layout={layouts.text9}>
-                      <div className={css(styles.text9Text)}>{'41s'}</div>
-                    </Px>
-                  </Px>
-
-                  <div className={css(styles.flexCell195)} />
-                  <Px layout={layouts.box5} />
-                  <div className={css(styles.flexCell197)} />
-
-                  <Px layout={layouts.flexGroup210}>
-                    <Px layout={layouts.group16}>
-                      <Px layout={layouts.graph17} />
-                    </Px>
-
-                    <div className={css(styles.flexCell212)} />
-
-                    <Px layout={layouts.flexGroup232}>
-                      <div className={css(styles.flexCell233)} />
-                      <Px layout={layouts.text13}>
-                        <div className={css(styles.text13Text)}>
-                          {'Should This Exist?'}
-                        </div>
-                      </Px>
-                      <div className={css(styles.flexCell235)} />
-                      <Px layout={layouts.text14}>
-                        <div className={css(styles.text14Text)}>
-                          {'WaitWhat'}
-                        </div>
-                      </Px>
-                    </Px>
-
-                    <div className={css(styles.flexCell216)} />
-                    <Px layout={layouts.text15}>
-                      <div className={css(styles.text15Text)}>{'39min'}</div>
-                    </Px>
-                  </Px>
-
-                  <div className={css(styles.flexCell199)} />
-                </Px>
-              </Px>
-            </Px>
+            </div>
+            <div className={css(heroStyles.flexRow260_space3)} />
           </Px>
-        </Px>
 
-        <Px layout={layouts.group19}>
-          <Px layout={layouts.box20} />
-
-          <Px layout={layouts.BackgroundGroupFlexGroup89}>
-            <div className={css(styles.flexCell90)} />
-
-            <Px layout={layouts.flexGroup78}>
-              <Px layout={layouts.group23}>
-                <Px layout={layouts.graph24} />
-              </Px>
-
-              <div className={css(styles.flexCell80)} />
-
-              <Px layout={layouts.group27}>
-                <Px layout={layouts.graph28} />
-              </Px>
-
-              <div className={css(styles.flexCell82)} />
-
-              <Px layout={layouts.group29}>
-                <Px layout={layouts.graph30} />
-              </Px>
-
-              <div className={css(styles.flexCell84)} />
-
-              <Px layout={layouts.group25}>
-                <Px layout={layouts.graph26} />
-              </Px>
-            </Px>
-
-            <div className={css(styles.flexCell92)} />
-
-            <Px layout={layouts.group21}>
-              <Px layout={layouts.box22} />
-            </Px>
-
-            <div className={css(styles.flexCell94)} />
-          </Px>
-        </Px>
-
-        <Px layout={layouts.group63}>
-          <Px layout={layouts.group64}>
-            <Px layout={layouts.box65} />
-
-            <Px layout={layouts.BackgroundGroupFlexGroup100}>
-              <div className={css(styles.flexCell101)} />
-
-              <Px layout={layouts.group72}>
-                <Px layout={layouts.text73}>
-                  <div className={css(styles.text73Text)}>
-                    <span className={css(styles.text73Span0)}>{'9:4'}</span>
-                    <span className={css(styles.text73Span1)}>{'1'}</span>
-                  </div>
-                </Px>
-              </Px>
-
-              <div className={css(styles.flexCell103)} />
-              <Px layout={layouts.graph71} />
-              <div className={css(styles.flexCell105)} />
-              <Px layout={layouts.graph70} />
-              <div className={css(styles.flexCell107)} />
-
-              <Px layout={layouts.flexGroup111}>
-                <Px layout={layouts.CoverGroupGroup96}>
-                  <Px layout={layouts.box67} />
-                  <Px layout={layouts.box69} />
-                </Px>
-
-                <div className={css(styles.flexCell113)} />
-                <Px layout={layouts.graph68} />
-              </Px>
-
-              <div className={css(styles.flexCell109)} />
-            </Px>
-          </Px>
-        </Px>
-      </Px>
-    );
-  }
+          <Px x="258fr 40px 17px" y="135fr 40px 25px" absolute className={css(heroStyles.img59)} />
+        </div>
+      </div>
+      <div className={css(heroStyles.hero_space2)} />
+      <div className={css(heroStyles.hero_space3)} />
+    </div>
+  );
 }
 
-const styles = StyleSheet.create({
-  group1Body: {
+function renderContent(props) {
+  return (
+    <Px
+      x="minmax(320px,375fr)"
+      y="0px minmax(780px,780fr) 32px"
+      absolute
+      trackStyle={{ overflow: 'auto' }}
+      areaStyle={{ overflow: 'scroll', pointerEvents: 'auto' }}
+      className={css(contentStyles.content)}>
+      <Px x="375fr" y="0px 211fr 569fr" absolute className={css(contentStyles.img31)} />
+
+      <div className={css(contentStyles.flexColumn194)}>
+        <div className={css(contentStyles.flexColumn194_item0)}>
+          <div className={css(contentStyles.txt62)}>
+            <div className={css(contentStyles.txt62_content)}>{'Explore'}</div>
+          </div>
+        </div>
+        <div className={css(contentStyles.flexColumn194_item1)}>
+          <div className={css(contentStyles.txt61)}>
+            <div className={css(contentStyles.txt61_content)}>{'Based on your interests'}</div>
+          </div>
+        </div>
+        <div className={css(contentStyles.flexColumn194_space2)} />
+        <div className={css(contentStyles.flexColumn194_item3)}>{renderHero(props)}</div>
+        <div className={css(contentStyles.flexColumn194_space4)} />
+        <div className={css(contentStyles.flexColumn194_item5)}>
+          <div className={css(contentStyles.flexRow137)}>
+            <div className={css(contentStyles.flexRow137_item0)}>
+              <div className={css(contentStyles.flexColumn131)}>
+                <div className={css(contentStyles.flexColumn131_item0)}>
+                  <div className={css(contentStyles.txt33)}>
+                    <div className={css(contentStyles.txt33_content)}>{'Discover'}</div>
+                  </div>
+                </div>
+                <div className={css(contentStyles.flexColumn131_space1)} />
+                <div className={css(contentStyles.flexColumn131_item2)}>
+                  <div className={css(contentStyles.txt34)}>
+                    <div className={css(contentStyles.txt34_content)}>{'Top podcasts on PodPro'}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className={css(contentStyles.flexRow137_space1)} />
+            <div className={css(contentStyles.flexRow137_item2)}>
+              <Px x="minmax(0px, max-content)" y="26fr minmax(19px,19fr) 0px" className={css(contentStyles.txt35)}>
+                <div className={css(contentStyles.txt35_content)}>{'Show all'}</div>
+              </Px>
+            </div>
+          </div>
+        </div>
+        <div className={css(contentStyles.flexColumn194_space6)} />
+        <div className={css(contentStyles.flexColumn194_item7)}>
+          <div className={css(contentStyles.discover)}>
+            <div className={css(contentStyles.discover_item0)}>
+              <div className={css(contentStyles.item)}>
+                <Px x="14fr 92fr 14fr" y="0px minmax(161px,161fr) 26px" className={css(contentStyles.flexColumn87)}>
+                  <div className={css(contentStyles.flexColumn87_item0)}>
+                    <div className={css(contentStyles.img38)} />
+                  </div>
+                  <div className={css(contentStyles.flexColumn87_space1)} />
+                  <div className={css(contentStyles.flexColumn87_item2)}>
+                    <div className={css(contentStyles.txt39)}>
+                      <pre className={css(contentStyles.txt39_content)}>{'To Live and Die \nin LA'}</pre>
+                    </div>
+                  </div>
+                  <div className={css(contentStyles.flexColumn87_space3)} />
+                  <div className={css(contentStyles.flexColumn87_item4)}>
+                    <div className={css(contentStyles.txt40)}>
+                      <pre className={css(contentStyles.txt40_content)}>{'Tenderfoot TV \n& Cadence 13'}</pre>
+                    </div>
+                  </div>
+                </Px>
+              </div>
+            </div>
+            <div className={css(contentStyles.discover_item1)}>
+              <div className={css(contentStyles.item1)}>
+                <Px x="13fr 94fr 13fr" y="0px minmax(135px,135fr) 52px" className={css(contentStyles.flexColumn95)}>
+                  <div className={css(contentStyles.flexColumn95_item0)}>
+                    <div className={css(contentStyles.img46)} />
+                  </div>
+                  <div className={css(contentStyles.flexColumn95_space1)} />
+                  <div className={css(contentStyles.flexColumn95_item2)}>
+                    <div className={css(contentStyles.txt47)}>
+                      <div className={css(contentStyles.txt47_content)}>{'Public Official A'}</div>
+                    </div>
+                  </div>
+                  <div className={css(contentStyles.flexColumn95_space3)} />
+                  <div className={css(contentStyles.flexColumn95_item4)}>
+                    <div className={css(contentStyles.txt48)}>
+                      <div className={css(contentStyles.txt48_content)}>{'WBEZ Chicago'}</div>
+                    </div>
+                  </div>
+                </Px>
+              </div>
+            </div>
+            <div className={css(contentStyles.discover_item2)}>
+              <div className={css(contentStyles.item2)}>
+                <Px x="14fr 92fr 14fr" y="0px minmax(135px,135fr) 52px" className={css(contentStyles.flexColumn103)}>
+                  <div className={css(contentStyles.flexColumn103_item0)}>
+                    <div className={css(contentStyles.img42)} />
+                  </div>
+                  <div className={css(contentStyles.flexColumn103_space1)} />
+                  <div className={css(contentStyles.flexColumn103_item2)}>
+                    <div className={css(contentStyles.txt43)}>
+                      <div className={css(contentStyles.txt43_content)}>{'The Dropout'}</div>
+                    </div>
+                  </div>
+                  <div className={css(contentStyles.flexColumn103_space3)} />
+                  <div className={css(contentStyles.flexColumn103_item4)}>
+                    <div className={css(contentStyles.txt44)}>
+                      <div className={css(contentStyles.txt44_content)}>{'ABC News'}</div>
+                    </div>
+                  </div>
+                </Px>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className={css(contentStyles.flexColumn194_item8)}>
+          <Px x="31px minmax(153px,153fr) 191fr" y="minmax(24px,24fr)" className={css(contentStyles.txt18)}>
+            <div className={css(contentStyles.txt18_content)}>{'Recently Uploaded'}</div>
+          </Px>
+        </div>
+        <div className={css(contentStyles.flexColumn194_space9)} />
+        <div className={css(contentStyles.flexColumn194_item10)}>
+          <div className={css(contentStyles.recently)}>
+            <div className={css(contentStyles.rect4)} />
+            <Px x="15px 298px 14px" y="73fr 2px 75fr" absolute className={css(contentStyles.img5)} />
+
+            <Px x="17px 295fr 15px" y="15px minmax(47px,47fr) 88fr" absolute className={css(contentStyles.flexRow227)}>
+              <div className={css(contentStyles.flexRow227_item0)}>
+                <div className={css(contentStyles.img11)} />
+              </div>
+              <div className={css(contentStyles.flexRow227_space1)} />
+              <div className={css(contentStyles.flexRow227_item2)}>
+                <div className={css(contentStyles.flexColumn209)}>
+                  <div className={css(contentStyles.flexColumn209_item0)}>
+                    <div className={css(contentStyles.txt7)}>
+                      <div className={css(contentStyles.txt7_content)}>{'The Dropout'}</div>
+                    </div>
+                  </div>
+                  <div className={css(contentStyles.flexColumn209_space1)} />
+                  <div className={css(contentStyles.flexColumn209_item2)}>
+                    <div className={css(contentStyles.txt8)}>
+                      <div className={css(contentStyles.txt8_content)}>{'ABC News'}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className={css(contentStyles.flexRow227_space3)} />
+              <div className={css(contentStyles.flexRow227_item4)}>
+                <div className={css(contentStyles.txt9)}>
+                  <div className={css(contentStyles.txt9_content)}>{'41s'}</div>
+                </div>
+              </div>
+            </Px>
+
+            <Px x="17px 295fr 15px" y="90fr minmax(47px,47fr) 13px" absolute className={css(contentStyles.flexRow220)}>
+              <div className={css(contentStyles.flexRow220_item0)}>
+                <div className={css(contentStyles.img17)} />
+              </div>
+              <div className={css(contentStyles.flexRow220_space1)} />
+              <div className={css(contentStyles.flexRow220_item2)}>
+                <div className={css(contentStyles.flexColumn215)}>
+                  <div className={css(contentStyles.flexColumn215_item0)}>
+                    <div className={css(contentStyles.txt13)}>
+                      <div className={css(contentStyles.txt13_content)}>{'Should This Exist?'}</div>
+                    </div>
+                  </div>
+                  <div className={css(contentStyles.flexColumn215_space1)} />
+                  <div className={css(contentStyles.flexColumn215_item2)}>
+                    <Px x="0px minmax(62px,62fr) 71fr" y="minmax(19px,19fr)" className={css(contentStyles.txt14)}>
+                      <div className={css(contentStyles.txt14_content)}>{'WaitWhat'}</div>
+                    </Px>
+                  </div>
+                </div>
+              </div>
+              <div className={css(contentStyles.flexRow220_space3)} />
+              <div className={css(contentStyles.flexRow220_item4)}>
+                <div className={css(contentStyles.txt15)}>
+                  <div className={css(contentStyles.txt15_content)}>{'39min'}</div>
+                </div>
+              </div>
+            </Px>
+          </div>
+        </div>
+      </div>
+    </Px>
+  );
+}
+
+function renderStatusBar(props) {
+  return (
+    <Px x="minmax(320px,375fr)" y="0px minmax(44px,44fr) 768fr" absolute className={css(statusBarStyles.statusBar)}>
+      <div className={css(statusBarStyles.rect65)} />
+
+      <div className={css(statusBarStyles.flexRow237)}>
+        <div className={css(statusBarStyles.flexRow237_item0)}>
+          <div className={css(statusBarStyles.txt73)}>
+            <div className={css(statusBarStyles.txt73_content)}>
+              <span className={css(statusBarStyles.txt73Span0)}>{'9:4'}</span>
+              <span className={css(statusBarStyles.txt73Span1)}>{'1'}</span>
+            </div>
+          </div>
+        </div>
+        <div className={css(statusBarStyles.flexRow237_space1)} />
+        <div className={css(statusBarStyles.flexRow237_item2)}>
+          <div className={css(statusBarStyles.img71)} />
+        </div>
+        <div className={css(statusBarStyles.flexRow237_space3)} />
+        <div className={css(statusBarStyles.flexRow237_item4)}>
+          <div className={css(statusBarStyles.img70)} />
+        </div>
+        <div className={css(statusBarStyles.flexRow237_space5)} />
+        <div className={css(statusBarStyles.flexRow237_item6)}>
+          <div className={css(statusBarStyles.group235)}>
+            <div className={css(statusBarStyles.rect67)} />
+            <div className={css(statusBarStyles.img68)} />
+            <div className={css(statusBarStyles.rect69)} />
+          </div>
+        </div>
+      </div>
+    </Px>
+  );
+}
+
+function renderTabBar(props) {
+  return (
+    <Px x="minmax(320px,375fr)" y="730fr minmax(82px,82fr) 0px" absolute className={css(tabBarStyles.tabBar)}>
+      <div className={css(tabBarStyles.rect20)} />
+      <Px x="121fr 134fr 120fr" y="68fr 5fr 9px" absolute className={css(tabBarStyles.rect22)} />
+
+      <Px x="375fr" y="12px 22fr 48fr" absolute className={css(tabBarStyles.flexRow144)}>
+        <div className={css(tabBarStyles.flexRow144_space0)} />
+        <div className={css(tabBarStyles.flexRow144_item1)}>
+          <div className={css(tabBarStyles.img24)} />
+        </div>
+        <div className={css(tabBarStyles.flexRow144_space2)} />
+        <div className={css(tabBarStyles.flexRow144_item3)}>
+          <div className={css(tabBarStyles.img28)} />
+        </div>
+        <div className={css(tabBarStyles.flexRow144_space4)} />
+        <div className={css(tabBarStyles.flexRow144_item5)}>
+          <div className={css(tabBarStyles.img30)} />
+        </div>
+        <div className={css(tabBarStyles.flexRow144_space6)} />
+        <div className={css(tabBarStyles.flexRow144_item7)}>
+          <div className={css(tabBarStyles.img26)} />
+        </div>
+        <div className={css(tabBarStyles.flexRow144_space8)} />
+      </Px>
+    </Px>
+  );
+}
+
+export default function Home(props) {
+  return (
+    <Px
+      x="100%"
+      y="100%"
+      absolute
+      trackStyle={{ overflow: 'auto' }}
+      areaStyle={{ overflow: 'hidden' }}
+      className={css(styles.group1)}>
+      {renderContent(props)}
+      {renderStatusBar(props)}
+      {renderTabBar(props)}
+    </Px>
+  );
+}
+
+Home.inStorybook = true;
+
+const heroStyles = StyleSheet.create({
+  hero: { width: `100%`, display: `flex`, position: `relative`, minHeight: 200 },
+  hero_space0: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: 24 },
+  hero_item1: { position: `relative`, display: `flex`, flexGrow: 1, flexBasis: 315 },
+  group76: { width: `100%`, display: `flex`, position: `relative`, minHeight: 200 },
+  img50: {
+    opacity: 0.8046177455357143,
+    backgroundImage: `url(${require('assets/6381e951b07d81dd2a7f8c80e90b8d99.png')})`,
+    backgroundSize: `cover`,
+    backgroundRepeat: `no-repeat`,
+    backgroundPosition: `center center`,
+    borderRadius: `0px 0px 0px 0px`,
+    position: `absolute`,
+    top: 66,
+    minHeight: 134,
+    bottom: 0,
+    left: 35,
+    flexGrow: 1,
+    right: 23
+  },
+  img51: {
+    opacity: 0.5,
+    backgroundImage: `url(${require('assets/425d537181fbbd4107f44cf2aae8f77b.png')})`,
+    backgroundSize: `cover`,
+    backgroundRepeat: `no-repeat`,
+    backgroundPosition: `center center`,
+    borderRadius: `10px 10px 10px 10px`,
+    position: `absolute`,
+    top: 0,
+    minHeight: 192,
+    bottom: 8,
+    left: 0,
+    flexGrow: 1,
+    right: 18
+  },
+  img53: {
+    width: `100%`,
+    backgroundImage: `url(${require('assets/3f0d762784f609a645f48d8861f20efd.png')})`,
+    backgroundSize: `cover`,
+    backgroundRepeat: `no-repeat`,
+    backgroundPosition: `center center`,
+    borderRadius: `10px 10px 10px 10px`,
+    position: `absolute`,
+    top: 0,
+    bottom: 8
+  },
+  txt56: shareStyles.fitVisible,
+  txt56_content: {
+    color: `rgb(255,255,255)`,
+    textAlign: `left`,
+    lineHeight: `29px`,
+    fontSize: `22px`,
+    fontWeight: 400,
+    fontStyle: `normal`,
+    fontFamily: `"Roboto", Helvetica, Arial, serif`,
+    userSelect: `text`
+  },
+  flexRow260: shareStyles.fitFlex,
+  flexRow260_item0: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: 21 },
+  img60: {
+    width: 21,
+    height: 21,
+    backgroundImage: `url(${require('assets/688f5ec46a2abe11d9105e90013a2bcf.png')})`,
+    backgroundSize: `contain`,
+    backgroundRepeat: `no-repeat`,
+    backgroundPosition: `center center`,
+    position: `relative`,
+    marginTop: 0,
+    marginBottom: 1
+  },
+  flexRow260_space1: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: 9 },
+  flexRow260_item2: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: `auto` },
+  txt57: { width: `100%`, overflow: `visible`, position: `relative`, marginTop: 3, minHeight: 19, marginBottom: 0 },
+  txt57_content: {
+    color: `rgb(255,255,255)`,
+    textAlign: `left`,
+    textShadow: `0px 1px 9px rgba(0,0,0,0.5019607843137255)`,
+    lineHeight: `19px`,
+    fontSize: `14px`,
+    fontWeight: 400,
+    fontStyle: `normal`,
+    fontFamily: `"Roboto", Helvetica, Arial, serif`,
+    userSelect: `text`
+  },
+  flexRow260_space3: { position: `relative`, display: `flex`, flexGrow: 1, flexBasis: 146 },
+  img59: {
     width: `100%`,
     height: `100%`,
-    backgroundColor: `rgb(255,255,255)`
+    backgroundImage: `url(${require('assets/eea0b48631523881e085f8d36482a4ca.png')})`,
+    backgroundSize: `contain`,
+    backgroundRepeat: `no-repeat`,
+    backgroundPosition: `center center`
   },
-  BodyGroup75Body: shareStyles.fit,
-  graph31Body: {
-    width: `110.58229166666665%`,
-    height: `106.24010587446871%`,
-    transform: `translate(-23px, -13.15625px)`,
-    backgroundImage: `url(${require('assets/1a027ac7abddd53be943946e0919b65b.png')})`,
+  hero_space2: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: 16 },
+  hero_space3: { position: `relative`, display: `flex`, flexBasis: 20 }
+});
+
+const contentStyles = StyleSheet.create({
+  content: shareStyles.fitFlex,
+  img31: {
+    width: `104.53333333333332%`,
+    height: `100%`,
+    transform: `translate(0px, 0px)`,
+    backgroundImage: `url(${require('assets/f9e54f0941bdaddb2dd6550636fd4f2e.png')})`,
     backgroundSize: `100% 100%`,
     backgroundRepeat: `no-repeat`,
     backgroundPosition: `center center`
   },
-  flexGroup124Body: shareStyles.fitFlexColumn,
-  text62Outer: { position: `relative`, flexBasis: 24 },
-  text62Body: shareStyles.fit,
-  text62Text: {
+  flexColumn194: {
+    width: `100%`,
+    display: `flex`,
+    flexDirection: `column`,
+    position: `relative`,
+    marginTop: 53,
+    minHeight: 727,
+    marginBottom: 0
+  },
+  flexColumn194_item0: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: `auto` },
+  txt62: { overflow: `visible`, position: `relative`, minHeight: 24, marginLeft: 31 },
+  txt62_content: {
     color: `rgb(255,255,255)`,
     textAlign: `left`,
-    lineHeight: `21.599999999999998px`,
-    fontSize: 18,
+    lineHeight: `24px`,
+    fontSize: `18px`,
     fontWeight: 700,
     fontStyle: `normal`,
     fontFamily: `"Roboto", Helvetica, Arial, serif`,
     userSelect: `text`
   },
-  flexCell126: { position: `relative`, flexShrink: 0, minHeight: 2 },
-  text61Outer: { position: `relative`, flexBasis: 19 },
-  text61Body: shareStyles.fit,
-  text61Text: {
+  flexColumn194_item1: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: `auto`, marginTop: -1 },
+  txt61: { overflow: `visible`, position: `relative`, minHeight: 19, marginLeft: 31 },
+  txt61_content: {
     color: `rgb(255,255,255)`,
     textAlign: `left`,
-    lineHeight: `16.8px`,
-    fontSize: 14,
+    lineHeight: `19px`,
+    fontSize: `14px`,
     fontWeight: 400,
     fontStyle: `normal`,
     fontFamily: `"Roboto", Helvetica, Arial, serif`,
     userSelect: `text`
   },
-  flexCell128: { position: `relative`, flexShrink: 0, minHeight: 18 },
-  flexGroup135Outer: { position: `relative`, flexBasis: 200 },
-  flexGroup135Body: shareStyles.fitFlex,
-  flexCell136: { position: `relative`, flexShrink: 0, minWidth: 24 },
-  group138Outer: { position: `relative`, flexGrow: 1, flexBasis: 315 },
-  group138Body: shareStyles.fit,
-  graph50Body: {
-    width: `100%`,
-    height: `100%`,
-    opacity: 0.8046177455357143,
-    backgroundImage: `url(${require('assets/dda54ae400f4eb5495599d626f0dba19.png')})`,
-    backgroundSize: `cover`,
-    backgroundRepeat: `no-repeat`,
-    backgroundPosition: `center center`,
-    borderRadius: `0px 0px 0px 0px`
-  },
-  CoverGroupGroup118Body: shareStyles.fit,
-  graph51Body: {
-    width: `100%`,
-    height: `100%`,
-    opacity: 0.5,
-    backgroundImage: `url(${require('assets/00cbce7d9268e41e3f159d8d53aa83d6.png')})`,
-    backgroundSize: `cover`,
-    backgroundRepeat: `no-repeat`,
-    backgroundPosition: `center center`,
-    borderRadius: `10px 10px 10px 10px`
-  },
-  group52Body: shareStyles.fit,
-  graph53Body: {
-    width: `100%`,
-    height: `100%`,
-    backgroundImage: `url(${require('assets/7af1b12e24fcdab21907d449ead9cec0.png')})`,
-    backgroundSize: `cover`,
-    backgroundRepeat: `no-repeat`,
-    backgroundPosition: `center center`,
-    borderRadius: `10px 10px 10px 10px`
-  },
-  BackgroundGroupGroup122Body: shareStyles.fit,
-  flexGroup219Body: shareStyles.fitFlexColumn,
-  text56Outer: { position: `relative`, flexBasis: 29 },
-  text56Body: shareStyles.fit,
-  text56Text: {
-    color: `rgb(255,255,255)`,
-    textAlign: `left`,
-    lineHeight: `26.4px`,
-    fontSize: 22,
-    fontWeight: 400,
-    fontStyle: `normal`,
-    fontFamily: `"Roboto", Helvetica, Arial, serif`,
-    userSelect: `text`
-  },
-  flexCell221: { position: `relative`, flexBasis: 74 },
-  flexGroup238Outer: { position: `relative`, flexBasis: 42 },
-  flexGroup238Body: shareStyles.fitFlex,
-  flexCell239: { position: `relative`, flexShrink: 0, minWidth: 2 },
-  graph60Outer: { position: `relative`, flexBasis: 20.5 },
-  graph60Body: {
-    width: `100%`,
-    height: `100%`,
-    backgroundImage: `url(${require('assets/644d6bc0b8b19a0201ef5ae5853024b9.png')})`,
-    backgroundSize: `contain`,
-    backgroundRepeat: `no-repeat`,
-    backgroundPosition: `center center`
-  },
-  flexCell241: { position: `relative`, flexShrink: 0, minWidth: 9.5 },
-  text57Outer: { position: `relative`, flexBasis: 89 },
-  text57Body: shareStyles.fit,
-  text57Text: {
-    color: `rgb(255,255,255)`,
-    textAlign: `left`,
-    lineHeight: `16.8px`,
-    textShadow: `0px 1px 9px #00000080`,
-    fontSize: 14,
-    fontWeight: 400,
-    fontStyle: `normal`,
-    fontFamily: `"Roboto", Helvetica, Arial, serif`,
-    userSelect: `text`
-  },
-  flexCell243: { position: `relative`, flexGrow: 1, flexBasis: 113 },
-  group58Outer: { position: `relative`, flexShrink: 0, minWidth: 41 },
-  group58Body: shareStyles.fit,
-  graph59Body: {
-    width: `100%`,
-    height: `100%`,
-    backgroundImage: `url(${require('assets/f3df2077ade351a2f6f73c03bf65bbc7.png')})`,
-    backgroundSize: `contain`,
-    backgroundRepeat: `no-repeat`,
-    backgroundPosition: `center center`
-  },
-  flexCell140: { position: `relative`, flexShrink: 0, minWidth: 16 },
-  group54Outer: { position: `relative`, flexBasis: 20 },
-  group54Body: shareStyles.fit,
-  graph55Body: {
-    width: `1575%`,
-    height: `100%`,
-    transform: `translate(0px, 0px)`,
-    backgroundImage: `url(${require('assets/d3f260395b4eee3aadb048c6d6ce9e28.png')})`,
-    backgroundSize: `cover`,
-    backgroundRepeat: `no-repeat`,
-    backgroundPosition: `center center`,
-    borderRadius: `10px 10px 10px 10px`
-  },
-  flexCell130: { position: `relative`, flexShrink: 0, minHeight: 27 },
-  flexGroup143Outer: { position: `relative`, flexBasis: 224 },
-  flexGroup143Body: shareStyles.fitFlexColumn,
-  text33Outer: { position: `relative`, flexBasis: 24 },
-  text33Body: shareStyles.fit,
-  text33Text: {
+  flexColumn194_space2: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: 18 },
+  flexColumn194_item3: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: `auto` },
+  flexColumn194_space4: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: 27 },
+  flexColumn194_item5: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: `auto` },
+  flexRow137: { display: `flex`, position: `relative`, minHeight: 45, marginLeft: 31, flexGrow: 1, marginRight: 29 },
+  flexRow137_item0: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: `auto` },
+  flexColumn131: { display: `flex`, flexDirection: `column`, position: `relative`, minHeight: 45, maxWidth: `auto` },
+  flexColumn131_item0: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: `auto` },
+  txt33: { overflow: `visible`, position: `relative`, minHeight: 24, marginLeft: 0 },
+  txt33_content: {
     color: `rgb(255,45,85)`,
     textAlign: `left`,
-    lineHeight: `21.599999999999998px`,
-    fontSize: 18,
+    lineHeight: `24px`,
+    fontSize: `18px`,
     fontWeight: 700,
     fontStyle: `normal`,
     fontFamily: `"Roboto", Helvetica, Arial, serif`,
     userSelect: `text`
   },
-  flexCell145: { position: `relative`, flexShrink: 0, minHeight: 2 },
-  flexGroup157Outer: { position: `relative`, flexBasis: 19 },
-  flexGroup157Body: shareStyles.fitFlex,
-  flexCell158: { position: `relative`, flexShrink: 0, minWidth: 31 },
-  text34Outer: { position: `relative`, flexBasis: 155 },
-  text34Body: shareStyles.fit,
-  text34Text: {
+  flexColumn131_space1: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: 2 },
+  flexColumn131_item2: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: `auto` },
+  txt34: { overflow: `visible`, position: `relative`, minHeight: 19, maxWidth: `auto` },
+  txt34_content: {
     color: `rgba(84,84,84,0.5019607843137255)`,
     textAlign: `left`,
-    lineHeight: `16.8px`,
-    fontSize: 14,
+    lineHeight: `19px`,
+    fontSize: `14px`,
     fontWeight: 400,
     fontStyle: `normal`,
     fontFamily: `"Roboto", Helvetica, Arial, serif`,
     userSelect: `text`
   },
-  flexCell160: { position: `relative`, flexGrow: 1, flexBasis: 106 },
-  text35Outer: { position: `relative`, flexBasis: 54 },
-  text35Body: shareStyles.fit,
-  text35Text: {
+  flexRow137_space1: { position: `relative`, display: `flex`, flexGrow: 1, flexBasis: 106 },
+  flexRow137_item2: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: `auto` },
+  txt35: shareStyles.fitVisible,
+  txt35_content: {
     color: `rgb(84,84,84)`,
     textAlign: `left`,
-    lineHeight: `16.8px`,
-    fontSize: 14,
+    lineHeight: `19px`,
+    fontSize: `14px`,
     fontWeight: 400,
     fontStyle: `normal`,
     fontFamily: `"Roboto", Helvetica, Arial, serif`,
     userSelect: `text`
   },
-  flexCell162: { position: `relative`, flexShrink: 0, minWidth: 29 },
-  flexCell149: { position: `relative`, flexShrink: 0, minHeight: 19 },
-  flexGroup164Outer: { position: `relative`, flexBasis: 160 },
-  flexGroup164Body: shareStyles.fitFlex,
-  flexGroup171Outer: { position: `relative`, flexBasis: 92 },
-  flexGroup171Body: shareStyles.fitFlexColumn,
-  graph38Outer: { position: `relative`, flexBasis: 90 },
-  graph38Body: {
+  flexColumn194_space6: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: 19 },
+  flexColumn194_item7: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: `auto` },
+  discover: { display: `flex`, flexWrap: `wrap`, position: `relative`, marginLeft: 9, flexGrow: 1, marginRight: 5 },
+  discover_item0: { position: `relative`, display: `flex`, flexBasis: 119.5 },
+  item: { width: `100%`, display: `flex`, position: `relative`, minWidth: 120 },
+  flexColumn87: shareStyles.fitFlexColumn,
+  flexColumn87_item0: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: 90 },
+  img38: {
     width: `100%`,
-    height: `100%`,
-    backgroundImage: `url(${require('assets/8e95951bfcc4dbc90910d71e2621c1e5.png')})`,
+    height: 90,
+    backgroundImage: `url(${require('assets/7f907c72cedd510912cc2f012aeac015.png')})`,
     backgroundSize: `contain`,
     backgroundRepeat: `no-repeat`,
-    backgroundPosition: `center center`
+    backgroundPosition: `center center`,
+    position: `relative`
   },
-  flexCell173: { position: `relative`, flexShrink: 0, minHeight: 6 },
-  text39Outer: { position: `relative`, flexBasis: 34 },
-  text39Body: shareStyles.fitFlexCenter,
-  text39Text: {
+  flexColumn87_space1: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: 8 },
+  flexColumn87_item2: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: `auto` },
+  txt39: {
+    width: `100%`,
+    display: `flex`,
+    justifyContent: `center`,
+    overflow: `visible`,
+    position: `relative`,
+    minHeight: 34
+  },
+  txt39_content: {
     color: `rgb(84,84,84)`,
     textAlign: `center`,
+    overflow: `visible`,
+    marginTop: 0,
+    marginBottom: 0,
+    whiteSpace: `pre-wrap`,
     lineHeight: `17px`,
-    whiteSpace: `pre-wrap`,
-    fontSize: 13,
+    fontSize: `13px`,
     fontWeight: 500,
     fontStyle: `normal`,
     fontFamily: `"Roboto", Helvetica, Arial, serif`,
+    margin: 0,
     userSelect: `text`
   },
-  flexCell175: { position: `relative`, flexShrink: 0, minHeight: 4 },
-  text40Outer: { position: `relative`, flexBasis: 26 },
-  text40Body: shareStyles.fitFlexCenter,
-  text40Text: {
+  flexColumn87_space3: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: 3 },
+  flexColumn87_item4: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: `auto` },
+  txt40: {
+    display: `flex`,
+    justifyContent: `center`,
+    overflow: `visible`,
+    position: `relative`,
+    minHeight: 26,
+    marginLeft: 9,
+    flexGrow: 1,
+    marginRight: 9
+  },
+  txt40_content: {
     color: `rgba(84,84,84,0.6)`,
     textAlign: `center`,
+    overflow: `visible`,
+    marginTop: 0,
+    marginBottom: 0,
+    whiteSpace: `pre-wrap`,
     lineHeight: `13px`,
-    whiteSpace: `pre-wrap`,
-    fontSize: 11,
+    fontSize: `11px`,
     fontWeight: 400,
     fontStyle: `normal`,
     fontFamily: `"Roboto", Helvetica, Arial, serif`,
+    margin: 0,
     userSelect: `text`
   },
-  flexCell166: { position: `relative`, flexShrink: 0, minWidth: 27.5 },
-  flexGroup178Outer: { position: `relative`, flexBasis: 94 },
-  flexGroup178Body: shareStyles.fitFlexColumn,
-  graph46Outer: { position: `relative`, flexBasis: 90 },
-  graph46Body: {
+  discover_item1: { position: `relative`, display: `flex`, flexBasis: 119.5 },
+  item1: { width: `100%`, display: `flex`, position: `relative`, minWidth: 120 },
+  flexColumn95: shareStyles.fitFlexColumn,
+  flexColumn95_item0: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: 90 },
+  img46: {
     width: `100%`,
-    height: `100%`,
-    backgroundImage: `url(${require('assets/26dea6e4bf92e2158d8ac293b6666835.png')})`,
+    height: 90,
+    backgroundImage: `url(${require('assets/6100c327dbdaa82c9d7d556b4530bfba.png')})`,
     backgroundSize: `contain`,
     backgroundRepeat: `no-repeat`,
-    backgroundPosition: `center center`
+    backgroundPosition: `center center`,
+    position: `relative`
   },
-  flexCell180: { position: `relative`, flexShrink: 0, minHeight: 11 },
-  text47Outer: { position: `relative`, flexBasis: 18 },
-  text47Body: shareStyles.fitFlexCenter,
-  text47Text: {
+  flexColumn95_space1: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: 11 },
+  flexColumn95_item2: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: `auto` },
+  txt47: {
+    width: `100%`,
+    display: `flex`,
+    justifyContent: `center`,
+    overflow: `visible`,
+    position: `relative`,
+    minHeight: 18,
+    minWidth: 94
+  },
+  txt47_content: {
     color: `rgb(84,84,84)`,
     textAlign: `center`,
-    lineHeight: `15.6px`,
-    fontSize: 13,
+    lineHeight: `18px`,
+    fontSize: `13px`,
     fontWeight: 500,
     fontStyle: `normal`,
     fontFamily: `"Roboto", Helvetica, Arial, serif`,
     userSelect: `text`
   },
-  flexCell182: { position: `relative`, flexShrink: 0, minHeight: 1 },
-  text48Outer: { position: `relative`, flexBasis: 15 },
-  text48Body: shareStyles.fitFlexCenter,
-  text48Text: {
+  flexColumn95_space3: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: 1 },
+  flexColumn95_item4: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: `auto` },
+  txt48: {
+    display: `flex`,
+    justifyContent: `center`,
+    overflow: `visible`,
+    position: `relative`,
+    minHeight: 15,
+    marginLeft: 11,
+    flexGrow: 1,
+    minWidth: 73,
+    marginRight: 11
+  },
+  txt48_content: {
     color: `rgba(84,84,84,0.6)`,
     textAlign: `center`,
-    lineHeight: `13.2px`,
-    fontSize: 11,
+    lineHeight: `15px`,
+    fontSize: `11px`,
     fontWeight: 400,
     fontStyle: `normal`,
     fontFamily: `"Roboto", Helvetica, Arial, serif`,
     userSelect: `text`
   },
-  flexCell168: { position: `relative`, flexShrink: 0, minWidth: 28 },
-  flexGroup185Outer: { position: `relative`, flexBasis: 90.5 },
-  flexGroup185Body: shareStyles.fitFlexColumn,
-  graph42Outer: { position: `relative`, flexBasis: 90 },
-  graph42Body: {
+  discover_item2: { position: `relative`, display: `flex`, flexBasis: 119.5 },
+  item2: { width: `100%`, display: `flex`, position: `relative`, minWidth: 120 },
+  flexColumn103: shareStyles.fitFlexColumn,
+  flexColumn103_item0: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: 90 },
+  img42: {
     width: `100%`,
-    height: `100%`,
-    backgroundImage: `url(${require('assets/b02e08d6f82495943dfa8f67f18efd22.png')})`,
+    height: 90,
+    backgroundImage: `url(${require('assets/921b2dfc4c45918f20acb16059d6069f.png')})`,
     backgroundSize: `contain`,
     backgroundRepeat: `no-repeat`,
-    backgroundPosition: `center center`
+    backgroundPosition: `center center`,
+    position: `relative`
   },
-  flexCell187: { position: `relative`, flexShrink: 0, minHeight: 11 },
-  text43Outer: { position: `relative`, flexBasis: 18 },
-  text43Body: shareStyles.fitFlexCenter,
-  text43Text: {
+  flexColumn103_space1: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: 11 },
+  flexColumn103_item2: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: `auto` },
+  txt43: {
+    display: `flex`,
+    justifyContent: `center`,
+    overflow: `visible`,
+    position: `relative`,
+    minHeight: 18,
+    marginLeft: 10,
+    flexGrow: 1,
+    minWidth: 73,
+    marginRight: 9
+  },
+  txt43_content: {
     color: `rgb(84,84,84)`,
     textAlign: `center`,
-    lineHeight: `15.6px`,
-    fontSize: 13,
+    lineHeight: `18px`,
+    fontSize: `13px`,
     fontWeight: 500,
     fontStyle: `normal`,
     fontFamily: `"Roboto", Helvetica, Arial, serif`,
     userSelect: `text`
   },
-  flexCell189: { position: `relative`, flexShrink: 0, minHeight: 1 },
-  text44Outer: { position: `relative`, flexBasis: 15 },
-  text44Body: shareStyles.fitFlexCenter,
-  text44Text: {
+  flexColumn103_space3: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: 1 },
+  flexColumn103_item4: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: `auto` },
+  txt44: {
+    display: `flex`,
+    justifyContent: `center`,
+    overflow: `visible`,
+    position: `relative`,
+    minHeight: 15,
+    marginLeft: 21,
+    flexGrow: 1,
+    minWidth: 52,
+    marginRight: 19
+  },
+  txt44_content: {
     color: `rgba(84,84,84,0.6)`,
     textAlign: `center`,
-    lineHeight: `13.2px`,
-    fontSize: 11,
+    lineHeight: `15px`,
+    fontSize: `11px`,
     fontWeight: 400,
     fontStyle: `normal`,
     fontFamily: `"Roboto", Helvetica, Arial, serif`,
     userSelect: `text`
   },
-  flexCell132: { position: `relative`, flexShrink: 0, minHeight: 27 },
-  flexGroup152Outer: { position: `relative`, flexBasis: 189 },
-  flexGroup152Body: shareStyles.fitFlexColumn,
-  text18Outer: { position: `relative`, flexBasis: 24 },
-  text18Body: shareStyles.fit,
-  text18Text: {
+  flexColumn194_item8: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: `auto` },
+  txt18: shareStyles.fitVisible,
+  txt18_content: {
     color: `rgb(255,45,85)`,
     textAlign: `left`,
-    lineHeight: `21.599999999999998px`,
-    fontSize: 18,
+    lineHeight: `24px`,
+    fontSize: `18px`,
     fontWeight: 700,
     fontStyle: `normal`,
     fontFamily: `"Roboto", Helvetica, Arial, serif`,
     userSelect: `text`
   },
-  flexCell154: { position: `relative`, flexShrink: 0, minHeight: 15 },
-  group3Outer: { position: `relative`, flexBasis: 150 },
-  group3Body: shareStyles.fit,
-  box4Body: {
+  flexColumn194_space9: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: 15 },
+  flexColumn194_item10: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: `auto` },
+  recently: { display: `flex`, position: `relative`, minHeight: 150, marginLeft: 24, flexGrow: 1, marginRight: 24 },
+  rect4: {
     width: `100%`,
     height: `100%`,
     backgroundColor: `rgb(255,255,255)`,
-    borderRadius: `10px 10px 10px 10px`
+    borderRadius: `10px 10px 10px 10px`,
+    position: `absolute`,
+    minHeight: 150
   },
-  BackgroundGroupFlexGroup192Body: shareStyles.fitFlexColumn,
-  flexCell193: { position: `relative`, flexShrink: 0, minHeight: 15 },
-  flexGroup201Outer: { position: `relative`, flexBasis: 47 },
-  flexGroup201Body: shareStyles.fitFlex,
-  group10Outer: { position: `relative`, flexShrink: 0, minWidth: 44 },
-  group10Body: shareStyles.fit,
-  graph11Body: {
+  img5: {
     width: `100%`,
     height: `100%`,
-    backgroundImage: `url(${require('assets/2bafc319c5bac7b182450e313d354b3c.png')})`,
+    backgroundImage: `url(${require('assets/37b368019be0241f33d56da478bf4fc8.png')})`,
+    backgroundSize: `contain`,
+    backgroundRepeat: `no-repeat`,
+    backgroundPosition: `center center`
+  },
+  flexRow227: shareStyles.fitFlex,
+  flexRow227_item0: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: 44 },
+  img11: {
+    width: 44,
+    height: 44,
+    backgroundImage: `url(${require('assets/babcc6c199851bb23341cd5436eaf795.png')})`,
     backgroundSize: `contain`,
     backgroundRepeat: `no-repeat`,
     backgroundPosition: `center center`,
-    borderRadius: `8px 8px 8px 8px`
+    borderRadius: `8px 8px 8px 8px`,
+    position: `relative`,
+    marginTop: 0,
+    marginBottom: 3
   },
-  flexCell203: { position: `relative`, flexShrink: 0, minWidth: 15 },
-  flexGroup226Outer: { position: `relative`, flexBasis: 89 },
-  flexGroup226Body: shareStyles.fitFlexColumn,
-  flexCell227: { position: `relative`, flexShrink: 0, minHeight: 5 },
-  text7Outer: { position: `relative`, flexBasis: 21 },
-  text7Body: shareStyles.fit,
-  text7Text: {
+  flexRow227_space1: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: 15 },
+  flexRow227_item2: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: `auto` },
+  flexColumn209: {
+    width: `100%`,
+    display: `flex`,
+    flexDirection: `column`,
+    position: `relative`,
+    marginTop: 5,
+    minHeight: 42,
+    marginBottom: 0
+  },
+  flexColumn209_item0: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: `auto` },
+  txt7: { width: `100%`, overflow: `visible`, position: `relative`, minHeight: 21, minWidth: 89 },
+  txt7_content: {
     color: `rgb(84,84,84)`,
     textAlign: `left`,
-    lineHeight: `19.2px`,
-    fontSize: 16,
+    lineHeight: `21px`,
+    fontSize: `16px`,
     fontWeight: 500,
     fontStyle: `normal`,
     fontFamily: `"Roboto", Helvetica, Arial, serif`,
     userSelect: `text`
   },
-  flexCell229: { position: `relative`, flexShrink: 0, minHeight: 2 },
-  text8Outer: { position: `relative`, flexBasis: 19 },
-  text8Body: shareStyles.fit,
-  text8Text: {
+  flexColumn209_space1: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: 2 },
+  flexColumn209_item2: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: `auto` },
+  txt8: {
+    overflow: `visible`,
+    position: `relative`,
+    minHeight: 19,
+    marginLeft: 0,
+    flexGrow: 1,
+    minWidth: 66,
+    marginRight: 23
+  },
+  txt8_content: {
     color: `rgba(84,84,84,0.6)`,
     textAlign: `left`,
-    lineHeight: `16.8px`,
-    fontSize: 14,
+    lineHeight: `19px`,
+    fontSize: `14px`,
     fontWeight: 400,
     fontStyle: `normal`,
     fontFamily: `"Roboto", Helvetica, Arial, serif`,
     userSelect: `text`
   },
-  flexCell207: { position: `relative`, flexGrow: 1, flexBasis: 128 },
-  text9Outer: { position: `relative`, flexBasis: 19 },
-  text9Body: {
+  flexRow227_space3: { position: `relative`, display: `flex`, flexGrow: 1, flexBasis: 128 },
+  flexRow227_item4: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: `auto` },
+  txt9: {
     width: `100%`,
-    height: `100%`,
     display: `flex`,
-    justifyContent: `flex-end`
+    justifyContent: `flex-end`,
+    overflow: `visible`,
+    position: `relative`,
+    marginTop: 9,
+    minHeight: 15,
+    marginBottom: 23,
+    minWidth: 19
   },
-  text9Text: {
+  txt9_content: {
     color: `rgba(84,84,84,0.6)`,
     textAlign: `right`,
-    lineHeight: `13.2px`,
-    fontSize: 11,
+    lineHeight: `15px`,
+    fontSize: `11px`,
     fontWeight: 400,
     fontStyle: `normal`,
     fontFamily: `"Roboto", Helvetica, Arial, serif`,
     userSelect: `text`
   },
-  flexCell195: { position: `relative`, flexShrink: 0, minHeight: 11 },
-  box5Outer: { position: `relative`, flexBasis: 1 },
-  box5Body: {
-    width: `100%`,
-    height: `100%`,
-    backgroundColor: `rgba(151,151,151,0.2)`
-  },
-  flexCell197: { position: `relative`, flexShrink: 0, minHeight: 16 },
-  flexGroup210Outer: { position: `relative`, flexBasis: 47 },
-  flexGroup210Body: shareStyles.fitFlex,
-  group16Outer: { position: `relative`, flexShrink: 0, minWidth: 44 },
-  group16Body: shareStyles.fit,
-  graph17Body: {
-    width: `100%`,
-    height: `100%`,
-    backgroundImage: `url(${require('assets/3b534859cfccd7d159630e90674f01a6.png')})`,
+  flexRow220: shareStyles.fitFlex,
+  flexRow220_item0: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: 44 },
+  img17: {
+    width: 44,
+    height: 44,
+    backgroundImage: `url(${require('assets/e236f4c4d4d424e53bacefcdc7cd88d0.png')})`,
     backgroundSize: `contain`,
     backgroundRepeat: `no-repeat`,
     backgroundPosition: `center center`,
-    borderRadius: `8px 8px 8px 8px`
+    borderRadius: `8px 8px 8px 8px`,
+    position: `relative`,
+    marginTop: 0,
+    marginBottom: 3
   },
-  flexCell212: { position: `relative`, flexShrink: 0, minWidth: 15 },
-  flexGroup232Outer: { position: `relative`, flexBasis: 133 },
-  flexGroup232Body: shareStyles.fitFlexColumn,
-  flexCell233: { position: `relative`, flexShrink: 0, minHeight: 5 },
-  text13Outer: { position: `relative`, flexBasis: 21 },
-  text13Body: shareStyles.fit,
-  text13Text: {
+  flexRow220_space1: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: 15 },
+  flexRow220_item2: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: `auto` },
+  flexColumn215: {
+    width: `100%`,
+    display: `flex`,
+    flexDirection: `column`,
+    position: `relative`,
+    marginTop: 5,
+    minHeight: 42,
+    marginBottom: 0
+  },
+  flexColumn215_item0: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: `auto` },
+  txt13: { width: `100%`, overflow: `visible`, position: `relative`, minHeight: 21, minWidth: 133 },
+  txt13_content: {
     color: `rgb(84,84,84)`,
     textAlign: `left`,
-    lineHeight: `19.2px`,
-    fontSize: 16,
+    lineHeight: `21px`,
+    fontSize: `16px`,
     fontWeight: 500,
     fontStyle: `normal`,
     fontFamily: `"Roboto", Helvetica, Arial, serif`,
     userSelect: `text`
   },
-  flexCell235: { position: `relative`, flexShrink: 0, minHeight: 2 },
-  text14Outer: { position: `relative`, flexBasis: 19 },
-  text14Body: shareStyles.fit,
-  text14Text: {
+  flexColumn215_space1: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: 2 },
+  flexColumn215_item2: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: `auto` },
+  txt14: shareStyles.fitVisible,
+  txt14_content: {
     color: `rgba(84,84,84,0.6)`,
     textAlign: `left`,
-    lineHeight: `16.8px`,
-    fontSize: 14,
+    lineHeight: `19px`,
+    fontSize: `14px`,
     fontWeight: 400,
     fontStyle: `normal`,
     fontFamily: `"Roboto", Helvetica, Arial, serif`,
     userSelect: `text`
   },
-  flexCell216: { position: `relative`, flexGrow: 1, flexBasis: 71 },
-  text15Outer: { position: `relative`, flexBasis: 32 },
-  text15Body: {
+  flexRow220_space3: { position: `relative`, display: `flex`, flexGrow: 1, flexBasis: 71 },
+  flexRow220_item4: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: `auto` },
+  txt15: {
     width: `100%`,
-    height: `100%`,
     display: `flex`,
-    justifyContent: `flex-end`
+    justifyContent: `flex-end`,
+    overflow: `visible`,
+    position: `relative`,
+    marginTop: 9,
+    minHeight: 15,
+    marginBottom: 23,
+    minWidth: 32
   },
-  text15Text: {
+  txt15_content: {
     color: `rgba(84,84,84,0.6)`,
     textAlign: `right`,
-    lineHeight: `13.2px`,
-    fontSize: 11,
+    lineHeight: `15px`,
+    fontSize: `11px`,
     fontWeight: 400,
     fontStyle: `normal`,
     fontFamily: `"Roboto", Helvetica, Arial, serif`,
     userSelect: `text`
+  }
+});
+
+const statusBarStyles = StyleSheet.create({
+  statusBar: shareStyles.fitFlex,
+  rect65: { width: `100%`, height: `100%`, borderRadius: `0px 0px 0px 0px`, position: `absolute`, minHeight: 44 },
+  flexRow237: {
+    display: `flex`,
+    position: `absolute`,
+    top: 16,
+    minHeight: 17,
+    bottom: 12,
+    left: 21,
+    flexGrow: 1,
+    right: 14
   },
-  flexCell199: { position: `relative`, flexShrink: 0, minHeight: 13 },
-  group19Body: shareStyles.fit,
-  box20Body: {
+  flexRow237_item0: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: `auto` },
+  txt73: {
     width: `100%`,
-    height: `100%`,
-    backgroundColor: `rgb(255,253,253)`,
-    borderRadius: `0px 0px 0px 0px`,
-    boxShadow: `0px -5px 74px 0px #54545443`
+    display: `flex`,
+    justifyContent: `center`,
+    overflow: `visible`,
+    position: `relative`,
+    minHeight: 17,
+    minWidth: 54
   },
-  BackgroundGroupFlexGroup89Body: shareStyles.fitFlexColumn,
-  flexCell90: { position: `relative`, flexShrink: 0, minHeight: 2 },
-  flexGroup78Outer: { position: `relative`, flexBasis: 41 },
-  flexGroup78Body: shareStyles.fitFlex,
-  group23Outer: { position: `relative`, flexBasis: 40 },
-  group23Body: shareStyles.fit,
-  graph24Body: {
-    width: `100%`,
-    height: `100%`,
-    backgroundImage: `url(${require('assets/aab18cd806476b48aa57a85e6b0c27b8.png')})`,
-    backgroundSize: `contain`,
-    backgroundRepeat: `no-repeat`,
-    backgroundPosition: `center center`
-  },
-  flexCell80: { position: `relative`, flexGrow: 1, flexBasis: 42 },
-  group27Outer: { position: `relative`, flexBasis: 41 },
-  group27Body: shareStyles.fit,
-  graph28Body: {
-    width: `100%`,
-    height: `100%`,
-    backgroundImage: `url(${require('assets/2334056cc49dc80cfab4c079636c0ff1.png')})`,
-    backgroundSize: `contain`,
-    backgroundRepeat: `no-repeat`,
-    backgroundPosition: `center center`
-  },
-  flexCell82: { position: `relative`, flexGrow: 1, flexBasis: 43 },
-  group29Outer: { position: `relative`, flexBasis: 39 },
-  group29Body: shareStyles.fit,
-  graph30Body: {
-    width: `100%`,
-    height: `100%`,
-    backgroundImage: `url(${require('assets/b778a55d1f5a1d3ffcfd7bb03fe05ed9.png')})`,
-    backgroundSize: `contain`,
-    backgroundRepeat: `no-repeat`,
-    backgroundPosition: `center center`
-  },
-  flexCell84: { position: `relative`, flexGrow: 1, flexBasis: 44 },
-  group25Outer: { position: `relative`, flexBasis: 39 },
-  group25Body: shareStyles.fit,
-  graph26Body: {
-    width: `100%`,
-    height: `100%`,
-    backgroundImage: `url(${require('assets/bb5712ad262ff4d3caa448635dfedf16.png')})`,
-    backgroundSize: `contain`,
-    backgroundRepeat: `no-repeat`,
-    backgroundPosition: `center center`
-  },
-  flexCell92: { position: `relative`, flexShrink: 0, minHeight: 25 },
-  group21Outer: { position: `relative`, flexBasis: 5 },
-  group21Body: shareStyles.fit,
-  box22Body: {
-    width: `100%`,
-    height: `100%`,
-    backgroundColor: `rgb(232,232,232)`,
-    borderRadius: `100px 100px 100px 100px`
-  },
-  flexCell94: { position: `relative`, flexShrink: 0, minHeight: 9 },
-  group63Body: shareStyles.fit,
-  group64Body: shareStyles.fit,
-  box65Body: { width: `100%`, height: `100%`, borderRadius: `0px 0px 0px 0px` },
-  BackgroundGroupFlexGroup100Body: shareStyles.fitFlex,
-  flexCell101: { position: `relative`, flexShrink: 0, minWidth: 21 },
-  group72Outer: { position: `relative`, flexBasis: 54 },
-  group72Body: shareStyles.fit,
-  text73Body: shareStyles.fitFlexCenter,
-  text73Text: {
+  txt73_content: {
     color: `rgb(255,255,255)`,
     textAlign: `center`,
-    lineHeight: `16.8px`,
-    fontSize: 14,
+    lineHeight: `17px`,
+    fontSize: `14px`,
     fontWeight: 600,
     fontStyle: `normal`,
-    fontFamily: `"SFProText", Helvetica, Arial, serif`,
+    fontFamily: `Roboto, Helvetica, Arial, serif`,
     userSelect: `text`
   },
-  text73Span0: {
+  txt73Span0: {
     color: `#ffffffff`,
-    lineHeight: `16.8px`,
-    fontSize: 14,
+    lineHeight: `17px`,
+    fontSize: `14px`,
     fontWeight: 600,
     fontStyle: `normal`,
-    fontFamily: `"SFProText", Helvetica, Arial, serif`
+    fontFamily: `Roboto, Helvetica, Arial, serif`
   },
-  text73Span1: {
+  txt73Span1: {
     color: `#ffffffff`,
-    lineHeight: `16.8px`,
-    fontSize: 14,
+    lineHeight: `17px`,
+    fontSize: `14px`,
     fontWeight: 600,
     fontStyle: `normal`,
-    fontFamily: `"SFProText", Helvetica, Arial, serif`
+    fontFamily: `Roboto, Helvetica, Arial, serif`
   },
-  flexCell103: {
-    position: `relative`,
-    flexGrow: 1,
-    flexBasis: 218.66666666666612
-  },
-  graph71Outer: { position: `relative`, flexBasis: 17 },
-  graph71Body: {
-    width: `100%`,
-    height: `100%`,
-    backgroundImage: `url(${require('assets/9f1b728a7eb09eedac90ff610897a6fa.png')})`,
+  flexRow237_space1: { position: `relative`, display: `flex`, flexGrow: 1, flexBasis: 219 },
+  flexRow237_item2: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: 17 },
+  img71: {
+    width: 17,
+    height: 11,
+    backgroundImage: `url(${require('assets/795ac441aa8b562eefccf531aa0efdfc.png')})`,
     backgroundSize: `contain`,
     backgroundRepeat: `no-repeat`,
-    backgroundPosition: `center center`
-  },
-  flexCell105: {
+    backgroundPosition: `center center`,
     position: `relative`,
-    flexShrink: 0,
-    minWidth: 5.027060830983771
+    marginTop: 3,
+    marginBottom: 4
   },
-  graph70Outer: { position: `relative`, flexBasis: 15.272376264937918 },
-  graph70Body: {
-    width: `100%`,
-    height: `100%`,
-    backgroundImage: `url(${require('assets/42d954f8fa036185c0c72e2cf6e7ee73.png')})`,
+  flexRow237_space3: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: 5 },
+  flexRow237_item4: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: 16 },
+  img70: {
+    width: 16,
+    height: 11,
+    backgroundImage: `url(${require('assets/451fedd8c291cbdd8ba086e9a85f4a89.png')})`,
     backgroundSize: `contain`,
     backgroundRepeat: `no-repeat`,
-    backgroundPosition: `center center`
-  },
-  flexCell107: {
+    backgroundPosition: `center center`,
     position: `relative`,
-    flexShrink: 0,
-    minWidth: 5.033896237412193
+    marginTop: 3,
+    marginBottom: 4
   },
-  flexGroup111Outer: { position: `relative`, flexBasis: 25 },
-  flexGroup111Body: shareStyles.fitFlex,
-  CoverGroupGroup96Outer: { position: `relative`, flexBasis: 22 },
-  CoverGroupGroup96Body: shareStyles.fit,
-  box67Body: {
-    width: `100%`,
+  flexRow237_space5: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: 4 },
+  flexRow237_item6: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: 25 },
+  group235: { width: `100%`, display: `flex`, position: `relative`, marginTop: 2, minHeight: 12, marginBottom: 4 },
+  rect67: {
     height: `100%`,
     opacity: 0.35,
     borderRadius: `2.666666746139526px 2.666666746139526px 2.666666746139526px 2.666666746139526px`,
     borderStyle: `solid`,
     borderColor: `rgb(255,255,255)`,
-    borderWidth: 1
+    borderWidth: 1,
+    position: `absolute`,
+    minHeight: 12,
+    left: 0,
+    flexGrow: 1,
+    right: 3
   },
-  box69Body: {
-    width: `100%`,
-    height: `100%`,
-    backgroundColor: `rgb(255,255,255)`,
-    borderRadius: `1.333333373069763px 1.333333373069763px 1.333333373069763px 1.333333373069763px`
-  },
-  flexCell113: { position: `relative`, flexShrink: 0, minWidth: 1 },
-  graph68Outer: { position: `relative`, flexBasis: 2 },
-  graph68Body: {
-    width: `100%`,
-    height: `100%`,
+  img68: {
+    width: 2,
+    height: 4,
     opacity: 0.4,
-    backgroundImage: `url(${require('assets/cb9d0b295292627404c01d733a644257.png')})`,
+    backgroundImage: `url(${require('assets/553e70bafe2803a5419746deea178230.png')})`,
     backgroundSize: `contain`,
     backgroundRepeat: `no-repeat`,
-    backgroundPosition: `center center`
+    backgroundPosition: `center center`,
+    position: `absolute`,
+    top: 0,
+    marginTop: 4,
+    marginBottom: 4,
+    left: 0,
+    marginLeft: 23,
+    marginRight: 0
   },
-  flexCell109: { position: `relative`, flexShrink: 0, minWidth: 14 }
+  rect69: {
+    backgroundColor: `rgb(255,255,255)`,
+    borderRadius: `1.333333373069763px 1.333333373069763px 1.333333373069763px 1.333333373069763px`,
+    position: `absolute`,
+    top: 2,
+    minHeight: 8,
+    bottom: 2,
+    left: 2,
+    flexGrow: 1,
+    right: 5
+  }
 });
 
-const layouts = {
-  graph31: {
-    className: css(styles.graph31Body),
-    isOffscreen: true,
-    absolute: true,
-    horizontal: ['minmax(0px, 375fr)'],
-    vertical: ['0px', '211px', '569fr']
-  },
-  text62: {
-    className: css(styles.text62Body),
-    horizontal: ['31px', 'minmax(61px,max-content)', '283fr'],
-    vertical: ['1fr', 'minmax(24px,max-content)', '1fr'],
-    outerClassName: css(styles.text62Outer)
-  },
-  text61: {
-    className: css(styles.text61Body),
-    horizontal: ['31px', 'minmax(149px,max-content)', '195fr'],
-    vertical: ['1fr', 'minmax(19px,max-content)', '1fr'],
-    outerClassName: css(styles.text61Outer)
-  },
-  graph50: {
-    className: css(styles.graph50Body),
-    absolute: true,
-    horizontal: ['35fr', 'minmax(0px, 257fr)', '23fr'],
-    vertical: ['66px', 'minmax(134px,134fr)', '0fr']
-  },
-  graph51: {
-    className: css(styles.graph51Body),
-    absolute: true,
-    horizontal: ['minmax(0px, 315fr)'],
-    vertical: ['minmax(192px,192fr)']
-  },
-  graph53: {
-    className: css(styles.graph53Body),
-    horizontal: ['minmax(0px, 315fr)'],
-    vertical: ['minmax(192px,192fr)']
-  },
-  group52: {
-    className: css(styles.group52Body),
-    absolute: true,
-    horizontal: ['minmax(0px, 315fr)'],
-    vertical: ['minmax(192px,192fr)']
-  },
-  text56: {
-    className: css(styles.text56Body),
-    horizontal: ['0px', 'minmax(auto,max-content)', '30fr'],
-    vertical: ['1fr', 'minmax(29px,max-content)', '1fr'],
-    outerClassName: css(styles.text56Outer)
-  },
-  graph60: {
-    className: css(styles.graph60Body),
-    horizontal: ['21px'],
-    vertical: ['20px', '21px', '2fr'],
-    outerClassName: css(styles.graph60Outer)
-  },
-  text57: {
-    className: css(styles.text57Body),
-    horizontal: ['0px', 'minmax(89px,max-content)', '1fr'],
-    vertical: ['23px', 'minmax(19px,max-content)', '0px'],
-    outerClassName: css(styles.text57Outer)
-  },
-  graph59: {
-    className: css(styles.graph59Body),
-    horizontal: ['0fr', '40px', '1fr'],
-    vertical: ['0px', '40px', '1fr']
-  },
-  group58: {
-    className: css(styles.group58Body),
-    horizontal: ['minmax(0px, 41fr)'],
-    vertical: ['0px', 'minmax(41px,41fr)', '1fr'],
-    outerClassName: css(styles.group58Outer)
-  },
-  flexGroup238: {
-    className: css(styles.flexGroup238Body),
-    horizontal: ['minmax(0px, 275fr)'],
-    vertical: ['minmax(42px,42fr)'],
-    outerClassName: css(styles.flexGroup238Outer)
-  },
-  flexGroup219: {
-    className: css(styles.flexGroup219Body),
-    horizontal: ['23fr', 'minmax(0px, 275fr)', '17fr'],
-    vertical: ['31px', 'minmax(145px,145fr)', '16px']
-  },
-  BackgroundGroupGroup122: {
-    className: css(styles.BackgroundGroupGroup122Body),
-    absolute: true,
-    horizontal: ['minmax(0px, 315fr)'],
-    vertical: ['minmax(192px,192fr)']
-  },
-  CoverGroupGroup118: {
-    className: css(styles.CoverGroupGroup118Body),
-    absolute: true,
-    horizontal: ['minmax(0px, 315fr)'],
-    vertical: ['0px', 'minmax(192px,192fr)', '8fr']
-  },
-  group138: {
-    className: css(styles.group138Body),
-    horizontal: ['minmax(0px, 315fr)'],
-    vertical: ['minmax(200px,200fr)'],
-    outerClassName: css(styles.group138Outer)
-  },
-  graph55: {
-    className: css(styles.graph55Body),
-    isOffscreen: true,
-    horizontal: ['minmax(0px, 20fr)'],
-    vertical: ['minmax(192px,192fr)']
-  },
-  group54: {
-    className: css(styles.group54Body),
-    horizontal: ['minmax(0px, 20fr)'],
-    vertical: ['0px', 'minmax(192px,192fr)', '8fr'],
-    outerClassName: css(styles.group54Outer)
-  },
-  flexGroup135: {
-    className: css(styles.flexGroup135Body),
-    horizontal: ['minmax(0px, 375fr)'],
-    vertical: ['minmax(200px,200fr)'],
-    outerClassName: css(styles.flexGroup135Outer)
-  },
-  text33: {
-    className: css(styles.text33Body),
-    horizontal: ['31px', 'minmax(71px,max-content)', '273fr'],
-    vertical: ['1fr', 'minmax(24px,max-content)', '1fr'],
-    outerClassName: css(styles.text33Outer)
-  },
-  text34: {
-    className: css(styles.text34Body),
-    horizontal: ['0px', 'minmax(155px,max-content)', '1fr'],
-    vertical: ['1fr', 'minmax(19px,max-content)', '1fr'],
-    outerClassName: css(styles.text34Outer)
-  },
-  text35: {
-    className: css(styles.text35Body),
-    horizontal: ['0px', 'minmax(54px,max-content)', '1fr'],
-    vertical: ['1fr', 'minmax(19px,max-content)', '1fr'],
-    outerClassName: css(styles.text35Outer)
-  },
-  flexGroup157: {
-    className: css(styles.flexGroup157Body),
-    horizontal: ['minmax(0px, 375fr)'],
-    vertical: ['minmax(19px,19fr)'],
-    outerClassName: css(styles.flexGroup157Outer)
-  },
-  graph38: {
-    className: css(styles.graph38Body),
-    horizontal: ['1px', 'minmax(0px, 90fr)', '2px'],
-    vertical: ['minmax(0px, 90fr)'],
-    outerClassName: css(styles.graph38Outer)
-  },
-  text39: {
-    className: css(styles.text39Body),
-    horizontal: ['minmax(0px, 92fr)'],
-    vertical: ['1fr', 'minmax(34px,max-content)', '1fr'],
-    outerClassName: css(styles.text39Outer)
-  },
-  text40: {
-    className: css(styles.text40Body),
-    horizontal: ['9fr', 'minmax(0px, 74fr)', '9fr'],
-    vertical: ['1fr', 'minmax(26px,max-content)', '1fr'],
-    outerClassName: css(styles.text40Outer)
-  },
-  flexGroup171: {
-    className: css(styles.flexGroup171Body),
-    horizontal: ['minmax(0px, 92fr)'],
-    vertical: ['minmax(160px,160fr)'],
-    outerClassName: css(styles.flexGroup171Outer)
-  },
-  graph46: {
-    className: css(styles.graph46Body),
-    horizontal: ['2px', 'minmax(0px, 90fr)', '2px'],
-    vertical: ['minmax(0px, 90fr)'],
-    outerClassName: css(styles.graph46Outer)
-  },
-  text47: {
-    className: css(styles.text47Body),
-    horizontal: ['minmax(0px, 94fr)'],
-    vertical: ['1fr', 'minmax(34px,max-content)', '1fr'],
-    outerClassName: css(styles.text47Outer)
-  },
-  text48: {
-    className: css(styles.text48Body),
-    horizontal: ['11fr', 'minmax(0px, 73fr)', '11fr'],
-    vertical: ['1fr', 'minmax(26px,max-content)', '1fr'],
-    outerClassName: css(styles.text48Outer)
-  },
-  flexGroup178: {
-    className: css(styles.flexGroup178Body),
-    horizontal: ['minmax(0px, 94fr)'],
-    vertical: ['0px', 'minmax(160px,135fr)', '25px'],
-    outerClassName: css(styles.flexGroup178Outer)
-  },
-  graph42: {
-    className: css(styles.graph42Body),
-    horizontal: ['minmax(0px, 90fr)'],
-    vertical: ['minmax(0px, 90fr)'],
-    outerClassName: css(styles.graph42Outer)
-  },
-  text43: {
-    className: css(styles.text43Body),
-    horizontal: ['9fr', 'minmax(0px, 73fr)', '8fr'],
-    vertical: ['1fr', 'minmax(34px,max-content)', '1fr'],
-    outerClassName: css(styles.text43Outer)
-  },
-  text44: {
-    className: css(styles.text44Body),
-    horizontal: ['20fr', 'minmax(0px, 52fr)', '18fr'],
-    vertical: ['1fr', 'minmax(26px,max-content)', '1fr'],
-    outerClassName: css(styles.text44Outer)
-  },
-  flexGroup185: {
-    className: css(styles.flexGroup185Body),
-    horizontal: ['0fr', 'minmax(0px, 90fr)', '1fr'],
-    vertical: ['0px', 'minmax(160px,135fr)', '25px'],
-    outerClassName: css(styles.flexGroup185Outer)
-  },
-  flexGroup164: {
-    className: css(styles.flexGroup164Body),
-    horizontal: ['24px', 'minmax(0px, 332fr)', '20px'],
-    vertical: ['minmax(160px,160fr)'],
-    outerClassName: css(styles.flexGroup164Outer)
-  },
-  flexGroup143: {
-    className: css(styles.flexGroup143Body),
-    horizontal: ['minmax(0px, 375fr)'],
-    vertical: ['minmax(224px,224fr)'],
-    outerClassName: css(styles.flexGroup143Outer)
-  },
-  text18: {
-    className: css(styles.text18Body),
-    horizontal: ['31px', 'minmax(153px,max-content)', '191fr'],
-    vertical: ['1fr', 'minmax(24px,max-content)', '1fr'],
-    outerClassName: css(styles.text18Outer)
-  },
-  box4: {
-    className: css(styles.box4Body),
-    absolute: true,
-    horizontal: ['minmax(0px, 327fr)'],
-    vertical: ['minmax(150px,150fr)']
-  },
-  graph11: {
-    className: css(styles.graph11Body),
-    horizontal: ['44px'],
-    vertical: ['44px']
-  },
-  group10: {
-    className: css(styles.group10Body),
-    horizontal: ['minmax(0px, 44fr)'],
-    vertical: ['0px', 'minmax(44px,44fr)', '3fr'],
-    outerClassName: css(styles.group10Outer)
-  },
-  text7: {
-    className: css(styles.text7Body),
-    horizontal: ['0px', 'minmax(89px,max-content)', '1fr'],
-    vertical: ['1fr', 'minmax(21px,max-content)', '1fr'],
-    outerClassName: css(styles.text7Outer)
-  },
-  text8: {
-    className: css(styles.text8Body),
-    horizontal: ['0px', 'minmax(66px,max-content)', '23fr'],
-    vertical: ['1fr', 'minmax(19px,max-content)', '1fr'],
-    outerClassName: css(styles.text8Outer)
-  },
-  flexGroup226: {
-    className: css(styles.flexGroup226Body),
-    horizontal: ['minmax(0px, 89fr)'],
-    vertical: ['minmax(47px,47fr)'],
-    outerClassName: css(styles.flexGroup226Outer)
-  },
-  text9: {
-    className: css(styles.text9Body),
-    horizontal: ['1fr', 'minmax(19px,max-content)', '0px'],
-    vertical: ['9px', 'minmax(15px,max-content)', '23fr'],
-    outerClassName: css(styles.text9Outer)
-  },
-  flexGroup201: {
-    className: css(styles.flexGroup201Body),
-    horizontal: ['17px', 'minmax(0px, 295fr)', '15px'],
-    vertical: ['minmax(47px,47fr)'],
-    outerClassName: css(styles.flexGroup201Outer)
-  },
-  box5: {
-    className: css(styles.box5Body),
-    horizontal: ['15fr', 'minmax(0px, 297fr)', '15fr'],
-    vertical: ['minmax(1px,1fr)'],
-    outerClassName: css(styles.box5Outer)
-  },
-  graph17: {
-    className: css(styles.graph17Body),
-    horizontal: ['44px'],
-    vertical: ['44px']
-  },
-  group16: {
-    className: css(styles.group16Body),
-    horizontal: ['minmax(0px, 44fr)'],
-    vertical: ['0px', 'minmax(44px,44fr)', '3fr'],
-    outerClassName: css(styles.group16Outer)
-  },
-  text13: {
-    className: css(styles.text13Body),
-    horizontal: ['0px', 'minmax(133px,max-content)', '1fr'],
-    vertical: ['1fr', 'minmax(21px,max-content)', '1fr'],
-    outerClassName: css(styles.text13Outer)
-  },
-  text14: {
-    className: css(styles.text14Body),
-    horizontal: ['0px', 'minmax(62px,max-content)', '71fr'],
-    vertical: ['1fr', 'minmax(19px,max-content)', '1fr'],
-    outerClassName: css(styles.text14Outer)
-  },
-  flexGroup232: {
-    className: css(styles.flexGroup232Body),
-    horizontal: ['minmax(0px, 133fr)'],
-    vertical: ['minmax(47px,47fr)'],
-    outerClassName: css(styles.flexGroup232Outer)
-  },
-  text15: {
-    className: css(styles.text15Body),
-    horizontal: ['1fr', 'minmax(32px,max-content)', '0px'],
-    vertical: ['9px', 'minmax(15px,max-content)', '23fr'],
-    outerClassName: css(styles.text15Outer)
-  },
-  flexGroup210: {
-    className: css(styles.flexGroup210Body),
-    horizontal: ['17px', 'minmax(0px, 295fr)', '15px'],
-    vertical: ['minmax(47px,47fr)'],
-    outerClassName: css(styles.flexGroup210Outer)
-  },
-  BackgroundGroupFlexGroup192: {
-    className: css(styles.BackgroundGroupFlexGroup192Body),
-    absolute: true,
-    horizontal: ['minmax(0px, 327fr)'],
-    vertical: ['minmax(150px,150fr)']
-  },
-  group3: {
-    className: css(styles.group3Body),
-    horizontal: ['24px', 'minmax(0px, 327fr)', '24px'],
-    vertical: ['minmax(150px,150fr)'],
-    outerClassName: css(styles.group3Outer)
-  },
-  flexGroup152: {
-    className: css(styles.flexGroup152Body),
-    horizontal: ['minmax(0px, 375fr)'],
-    vertical: ['minmax(189px,189fr)'],
-    outerClassName: css(styles.flexGroup152Outer)
-  },
-  flexGroup124: {
-    className: css(styles.flexGroup124Body),
-    absolute: true,
-    horizontal: ['minmax(0px, 375fr)'],
-    vertical: ['50px', 'minmax(730px,730fr)', '0px']
-  },
-  BodyGroup75: {
-    className: css(styles.BodyGroup75Body),
-    absolute: true,
-    overflow: 'scroll',
-    horizontal: ['minmax(0px, 375fr)'],
-    vertical: ['0px', 'minmax(780px,780fr)', '32fr']
-  },
-  box20: {
-    className: css(styles.box20Body),
-    absolute: true,
-    horizontal: ['minmax(0px, 375fr)'],
-    vertical: ['minmax(82px,82fr)']
-  },
-  graph24: {
-    className: css(styles.graph24Body),
-    horizontal: ['10fr', '19px', '10fr'],
-    vertical: ['10px', '20px', '10fr']
-  },
-  group23: {
-    className: css(styles.group23Body),
-    horizontal: ['minmax(0px, 40fr)'],
-    vertical: ['1px', 'minmax(40px,40fr)', '0fr'],
-    outerClassName: css(styles.group23Outer)
-  },
-  graph28: {
-    className: css(styles.graph28Body),
-    horizontal: ['10fr', '20px', '11fr'],
-    vertical: ['10px', '20px', '10fr']
-  },
-  group27: {
-    className: css(styles.group27Body),
-    horizontal: ['minmax(0px, 41fr)'],
-    vertical: ['1px', 'minmax(40px,40fr)', '0fr'],
-    outerClassName: css(styles.group27Outer)
-  },
-  graph30: {
-    className: css(styles.graph30Body),
-    horizontal: ['11fr', '18px', '10fr'],
-    vertical: ['10px', '17px', '10fr']
-  },
-  group29: {
-    className: css(styles.group29Body),
-    horizontal: ['minmax(0px, 39fr)'],
-    vertical: ['2px', 'minmax(37px,37fr)', '2fr'],
-    outerClassName: css(styles.group29Outer)
-  },
-  graph26: {
-    className: css(styles.graph26Body),
-    horizontal: ['10fr', '19px', '10fr'],
-    vertical: ['10px', '21px', '10fr']
-  },
-  group25: {
-    className: css(styles.group25Body),
-    horizontal: ['minmax(0px, 39fr)'],
-    vertical: ['minmax(41px,41fr)'],
-    outerClassName: css(styles.group25Outer)
-  },
-  flexGroup78: {
-    className: css(styles.flexGroup78Body),
-    horizontal: ['43px', 'minmax(0px, 288fr)', '44px'],
-    vertical: ['minmax(41px,41fr)'],
-    outerClassName: css(styles.flexGroup78Outer)
-  },
-  box22: {
-    className: css(styles.box22Body),
-    horizontal: ['minmax(0px, 134fr)'],
-    vertical: ['minmax(5px,5fr)']
-  },
-  group21: {
-    className: css(styles.group21Body),
-    horizontal: ['121fr', '134px', '120fr'],
-    vertical: ['minmax(5px,5fr)'],
-    outerClassName: css(styles.group21Outer)
-  },
-  BackgroundGroupFlexGroup89: {
-    className: css(styles.BackgroundGroupFlexGroup89Body),
-    absolute: true,
-    horizontal: ['minmax(0px, 375fr)'],
-    vertical: ['minmax(82px,82fr)']
-  },
-  group19: {
-    className: css(styles.group19Body),
-    absolute: true,
-    horizontal: ['minmax(0px, 375fr)'],
-    vertical: ['730fr', 'minmax(82px,82fr)', '0px']
-  },
-  box65: {
-    className: css(styles.box65Body),
-    absolute: true,
-    horizontal: ['minmax(0px, 375fr)'],
-    vertical: ['minmax(44px,44fr)']
-  },
-  text73: {
-    className: css(styles.text73Body),
-    horizontal: ['1fr', '54px', '1fr'],
-    vertical: ['1fr', 'minmax(17px,max-content)', '1fr']
-  },
-  group72: {
-    className: css(styles.group72Body),
-    horizontal: ['minmax(0px, 54fr)'],
-    vertical: ['15px', '18px', '11fr'],
-    outerClassName: css(styles.group72Outer)
-  },
-  graph71: {
-    className: css(styles.graph71Body),
-    horizontal: ['17px'],
-    vertical: ['18px', '11px', '16fr'],
-    outerClassName: css(styles.graph71Outer)
-  },
-  graph70: {
-    className: css(styles.graph70Body),
-    horizontal: ['15px'],
-    vertical: ['17px', '11px', '16fr'],
-    outerClassName: css(styles.graph70Outer)
-  },
-  box67: {
-    className: css(styles.box67Body),
-    absolute: true,
-    horizontal: ['minmax(0px, 22fr)'],
-    vertical: ['minmax(11px,11fr)']
-  },
-  box69: {
-    className: css(styles.box69Body),
-    absolute: true,
-    horizontal: ['2fr', 'minmax(0px, 18fr)', '2fr'],
-    vertical: ['2px', '7px', '2fr']
-  },
-  CoverGroupGroup96: {
-    className: css(styles.CoverGroupGroup96Body),
-    horizontal: ['minmax(0px, 22fr)'],
-    vertical: ['minmax(11px,11fr)'],
-    outerClassName: css(styles.CoverGroupGroup96Outer)
-  },
-  graph68: {
-    className: css(styles.graph68Body),
-    horizontal: ['0fr', '1px', '1fr'],
-    vertical: ['4px', '4px', '4fr'],
-    outerClassName: css(styles.graph68Outer)
-  },
-  flexGroup111: {
-    className: css(styles.flexGroup111Body),
-    horizontal: ['minmax(0px, 25fr)'],
-    vertical: ['17px', '12px', '15fr'],
-    outerClassName: css(styles.flexGroup111Outer)
-  },
-  BackgroundGroupFlexGroup100: {
-    className: css(styles.BackgroundGroupFlexGroup100Body),
-    absolute: true,
-    horizontal: ['minmax(0px, 375fr)'],
-    vertical: ['minmax(44px,44fr)']
-  },
-  group64: {
-    className: css(styles.group64Body),
-    horizontal: ['minmax(0px, 375fr)'],
-    vertical: ['minmax(44px,44fr)']
-  },
-  group63: {
-    className: css(styles.group63Body),
-    absolute: true,
-    horizontal: ['minmax(0px, 375fr)'],
-    vertical: ['0px', 'minmax(44px,44fr)', '768fr']
-  },
-  group1: {
-    className: css(styles.group1Body),
-    absolute: true,
-    horizontal: ['1fr'],
-    vertical: ['1fr']
-  }
-};
+const tabBarStyles = StyleSheet.create({
+  tabBar: shareStyles.fitFlex,
+  rect20: {
+    width: `100%`,
+    height: `100%`,
+    backgroundColor: `rgb(255,253,253)`,
+    borderRadius: `0px 0px 0px 0px`,
+    boxShadow: `0px -5px 74px 0px rgba(84,84,84,0.2627450980392157)`,
+    position: `absolute`,
+    minHeight: 82
+  },
+  rect22: {
+    width: `100%`,
+    height: `100%`,
+    backgroundColor: `rgb(232,232,232)`,
+    borderRadius: `100px 100px 100px 100px`
+  },
+  flexRow144: shareStyles.fitFlex,
+  flexRow144_space0: { position: `relative`, display: `flex`, flexGrow: 1, flexShrink: 0, flexBasis: 54 },
+  flexRow144_item1: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: 20 },
+  img24: {
+    width: 20,
+    height: 20,
+    backgroundImage: `url(${require('assets/501cef46729a85144552533f184476d9.png')})`,
+    backgroundSize: `contain`,
+    backgroundRepeat: `no-repeat`,
+    backgroundPosition: `center center`,
+    position: `relative`,
+    marginTop: 2,
+    marginBottom: 0
+  },
+  flexRow144_space2: { position: `relative`, display: `flex`, flexGrow: 1, flexBasis: 61 },
+  flexRow144_item3: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: 20 },
+  img28: {
+    width: 20,
+    height: 20,
+    backgroundImage: `url(${require('assets/1d4ae77a7252ffe42d7ad3d0fdd4bb8d.png')})`,
+    backgroundSize: `contain`,
+    backgroundRepeat: `no-repeat`,
+    backgroundPosition: `center center`,
+    position: `relative`,
+    marginTop: 1,
+    marginBottom: 1
+  },
+  flexRow144_space4: { position: `relative`, display: `flex`, flexGrow: 1, flexBasis: 65 },
+  flexRow144_item5: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: 18 },
+  img30: {
+    width: 18,
+    height: 17,
+    backgroundImage: `url(${require('assets/270cae3ae8756ce5d41b653705ad1cfe.png')})`,
+    backgroundSize: `contain`,
+    backgroundRepeat: `no-repeat`,
+    backgroundPosition: `center center`,
+    position: `relative`,
+    marginTop: 2,
+    marginBottom: 3
+  },
+  flexRow144_space6: { position: `relative`, display: `flex`, flexGrow: 1, flexBasis: 64 },
+  flexRow144_item7: { position: `relative`, display: `flex`, flexShrink: 0, flexBasis: 19 },
+  img26: {
+    width: 19,
+    height: 21,
+    backgroundImage: `url(${require('assets/aa0f4ef3cba253e5b5ecafb8bb542dcc.png')})`,
+    backgroundSize: `contain`,
+    backgroundRepeat: `no-repeat`,
+    backgroundPosition: `center center`,
+    position: `relative`,
+    marginTop: 0,
+    marginBottom: 1
+  },
+  flexRow144_space8: { position: `relative`, display: `flex`, flexGrow: 1, flexShrink: 0, flexBasis: 54 }
+});
+
+const styles = StyleSheet.create({
+  group1: { width: `100%`, height: `100%`, display: `flex`, backgroundColor: `rgb(255,255,255)` }
+});
